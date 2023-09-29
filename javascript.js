@@ -1,12 +1,15 @@
-
-
-//book stuff
 let myLibrary = []
+let closer = document.getElementById("close-dialog");
+let submit = document.getElementById("submit");
+let newBook = document.getElementById("new-book");
+let form = document.querySelector("dialog");
 
-function Book(title, author, pages) {
-  this.title = title
-  this.author = author
-  this.pages = pages
+class Book {
+  constructor(title, author, pages) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+  }
 }
 
 let addBookToLibrary = function() {
@@ -74,26 +77,14 @@ li.appendChild(delet);
     ol.appendChild(li);
 }
 
-let submit = document.getElementById("submit");
-submit.addEventListener("click", addBookToLibrary);
-
-//to do
-//Add a button on each book’s display to remove the book from the library.
-//Add a button on each book’s display to change its read status.
-
-let newBook = document.getElementById("new-book");
-let form = document.querySelector("dialog");
-
 let open = function(){
   form.show();
 }
-
-newBook.addEventListener("click", open);
-
-let closer = document.getElementById("close-dialog");
 
 let close = function(){
   form.close();
 }
 
+submit.addEventListener("click", addBookToLibrary);
+newBook.addEventListener("click", open);
 closer.addEventListener("click", close);
